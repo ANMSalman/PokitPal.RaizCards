@@ -1,27 +1,38 @@
-name: Deploy to GitHub Pages
-# Run workflow on every push to the master branch
+name: Deploy Blazor WASM to GitHub Page
+env:
+  PUBLISH_DIR: bin/Release/net5.0/publish/wwwroot
+
+# Controls when the action will run
 on:
   push:
     branches: [ master ]
-    
+
 jobs:
-  deploy-to-github-pages:
-    # use ubuntu-latest image to run steps on
-      runs-on: ubuntu-latest
-      steps:
-        # uses GitHub's checkout action to checkout code form the master branch
-        - uses: actions/checkout@v2
-     # sets up .NET Core SDK 5.0
-        - name: Setup .NET Core SDK
-          uses: actions/setup-dotnet@v1
-          with:
-            dotnet-version: 5.0
-         # publishes Blazor project to the release-folder
-        - name: Publish .NET Core Project
-          run: dotnet publish PokitPal.RaizCards.Client.csproj -c Release -o release --nologo
-        - name: Commit wwwroot to GitHub Pages
-          uses: JamesIves/github-pages-deploy-action@3.7.1
-          with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            BRANCH: gh-pages
-            FOLDER: release/wwwroot
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Publish application
+      run: dotnet publish -c Release
+    
+    # base href url value should be changed so that resources like CSS and scripts can load properly. 
+    - name: Rewrite base href
+      if: success()
+      uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
+      with:
+        html_path: ${{ env.PUBLISH_DIR }}/index.html
+        base_href: BASE_URL or REPOSITORY_NAME
+        
+    # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+    - name: Add .nojekyll file
+      run: touch ${{ env.PUBLISH_DIR }}/.nojekyll
+
+    - name: Commit to GitHub pages Repo
+      if: success()
+      uses: crazy-max/ghaction-github-pages@v1.5.1
+      with:
+        target_branch: gh-pages
+        build_dir: ${{ env.PUBLISH_DIR }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
