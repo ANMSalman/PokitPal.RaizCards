@@ -1,6 +1,6 @@
 ﻿
 <a href="card-details" style="width: 100%;">
-    <MudCard Class="scrolling-card" Style="@(IsNormal? "width: 100%; border-radius: 15px;" : "width: 280px; border-radius: 15px;")">
+    <MudCard Class="@(IsNormal?"" : "scrolling-card")" Style="@(IsNormal? "width: 100%; border-radius: 15px;" : "width: 280px; border-radius: 15px;")">
         <MudCardContent Class="px-0 py-0">
             <img src="@Image" style="width: 100%; height: 100%;"/>
             <div class="px-3 py-3">
