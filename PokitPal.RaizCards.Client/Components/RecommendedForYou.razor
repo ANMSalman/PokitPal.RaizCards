@@ -1,0 +1,28 @@
+﻿<MudContainer Class="py-10 px-10">
+    <div class="d-flex d-wrap justify-space-between">
+        <MudText Typo="Typo.h5"><strong>Recommended For You</strong></MudText>
+        <MudLink Href="#" Typo="Typo.subtitle1" Color="Color.Primary">
+            See All
+        </MudLink>
+
+    </div>
+    <div id="scrollElementRecommended" class="scrolling-wrapper mt-5">
+        <RecommendedGiftCard Image="img/Image-10@2x.png"></RecommendedGiftCard>
+        <RecommendedGiftCard Image="img/Image-11@2x.png"></RecommendedGiftCard>
+        <RecommendedGiftCard Image="img/Image-4@2x.png"></RecommendedGiftCard>
+        <RecommendedGiftCard Image="img/Image-15@2x.png"></RecommendedGiftCard>
+    </div>
+</MudContainer>
+
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await _jsRuntime.InvokeVoidAsync("ScrollHorizontal", "scrollElementRecommended");
+        }
+    }
+
+}

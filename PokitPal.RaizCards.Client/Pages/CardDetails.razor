@@ -1,0 +1,52 @@
+﻿@page "/card-details"
+
+<MudContainer Class="py-10 px-10">
+    <MudGrid>
+        <MudItem xs="12" md="4">
+            <MudCard Style="border-radius: 15px;">
+                <MudCardContent>
+                    <MudText Typo="Typo.body1" Style="font-weight: 600;" Color="Color.Primary">Amazon Gift Card</MudText>
+                    <MudText Typo="Typo.caption">9% investment</MudText>
+                    <MudHidden Breakpoint="Breakpoint.Xs">
+                        <MudCardMedia Class="mt-5" Image="img/Image-12@2x.png" Height="210" Style="border-radius: 15px;" />
+                    </MudHidden>
+                    <MudHidden Breakpoint="Breakpoint.SmAndUp">
+                        <MudCardMedia Class="mt-5" Image="img/Image-12@2x.png" Height="185" Style="border-radius: 15px;"/>
+                    </MudHidden>
+                     </MudCardContent>
+            </MudCard>
+            <MudButton FullWidth="true" Color="Color.Primary" Variant="Variant.Filled" Class="mt-5">Buy Now</MudButton>
+        </MudItem>
+        <MudItem xs="12" md="8">
+            <MudExpansionPanels MultiExpansion="true">
+                <MudExpansionPanel IsExpanded="true">
+                    <TitleContent>
+                        <MudText><strong>About The Gift Card</strong></MudText>
+                    </TitleContent>
+                    <ChildContent>
+                        orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        <br />
+                        <br />
+                        orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </ChildContent>
+                </MudExpansionPanel>
+                <MudExpansionPanel Class="mt-5">
+                    <TitleContent>
+                        <MudText><strong>Investment Tips</strong></MudText>
+                    </TitleContent>
+                    <ChildContent>
+                        Investment Tips
+                    </ChildContent>
+                </MudExpansionPanel>
+                <MudExpansionPanel Class="mt-5">
+                    <TitleContent>
+                        <MudText><strong>Gift Card Terms & Conditions</strong></MudText>
+                    </TitleContent>
+                    <ChildContent>
+                        Gift Card Terms & Conditions
+                    </ChildContent>
+                </MudExpansionPanel>
+            </MudExpansionPanels>
+        </MudItem>
+    </MudGrid>
+</MudContainer>

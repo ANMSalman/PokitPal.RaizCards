@@ -1,0 +1,33 @@
+﻿
+<MudContainer Class="py-10 px-10">
+    <div class="d-flex d-wrap justify-space-between">
+        <MudText Typo="Typo.h5"><strong>Featured Gift Cards</strong></MudText>
+        <MudLink Href="#" Typo="Typo.subtitle1" Color="Color.Primary">
+            See All
+        </MudLink>
+            
+        </div>
+    <div id="scrollElement" class="scrolling-wrapper mt-5">
+        <GiftCard Image="img/Image-12@2x.png" Title="Amazon Gift Card" SubTitle="9% Investment"></GiftCard>
+        <GiftCard Image="img/Image-13@2x.png" Title="Choice Gift Card" SubTitle="0.1% Investment"></GiftCard>
+        <GiftCard Image="img/Image-14@2x.png" Title="Ebay Gift Card" SubTitle="9% Investment"></GiftCard>
+        <GiftCard Image="img/Image-15@2x.png" Title="Xbox Gift Card" SubTitle="9% Investment"></GiftCard>
+        <GiftCard Image="img/Image-8@2x.png" Title="Uber Gift Card" SubTitle="9% Investment"></GiftCard>
+        <GiftCard Image="img/Image-7@2x.png" Title="Iconic Gift Card" SubTitle="9% Investment"></GiftCard>
+        <GiftCard Image="img/Image-9@2x.png" Title="UberEats Gift Card" SubTitle="9% Investment"></GiftCard>
+        <GiftCard Image="img/Image-19@2x.png" Title="Laubman&Pank Gift Card" SubTitle="9% Investment"></GiftCard>
+    </div>
+</MudContainer>
+
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await _jsRuntime.InvokeVoidAsync("ScrollHorizontal", "scrollElement");
+        }
+    }
+
+}

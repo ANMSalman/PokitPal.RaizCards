@@ -1,0 +1,36 @@
+﻿@inherits LayoutComponentBase
+
+<MudLayout>
+    <MudHidden Breakpoint="Breakpoint.Xs">
+        <MudAppBar Style="background-color: black;" Elevation="1" Class="pl-10">
+            <a href="/"><img class="ml-10" src="img/logo.png" /></a>
+        </MudAppBar>
+    </MudHidden>
+    <MudHidden Breakpoint="Breakpoint.SmAndUp">
+        <MudAppBar Style="background-color: black;" Elevation="1">
+            <a href="/" class="mx-auto"><img  src="img/logo.png" /></a>
+        </MudAppBar>
+    </MudHidden>
+    <MudMainContent>
+        <div class="page-container">
+            <div class="content-wrap">
+                @Body
+                <MudScrollToTop>
+                    <MudFab Color="Color.Tertiary" Icon="@Icons.Filled.ArrowUpward"/>
+                </MudScrollToTop>
+            </div>
+        </div>
+        <div Style="background-color: black;" class="mt-10 px-10 py-10 footer">
+            <MudGrid>
+                <MudItem xs="6" sm="4" md="2">
+                    <img class="ml-10" src="img/logo.png" />
+                </MudItem>
+                <MudItem xs="6" sm="8" md="10">
+                    <MudLink Color="Color.Primary" Class="ml-sm-5">Help & FAQ</MudLink>
+                    <MudLink Color="Color.Primary" Class="ml-sm-5">Privacy Policy</MudLink>
+                    <MudLink Color="Color.Primary" Class="ml-sm-5">Terms and Condition</MudLink>
+                </MudItem>
+            </MudGrid>
+        </div>
+    </MudMainContent>
+</MudLayout>

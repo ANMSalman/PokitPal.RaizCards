@@ -1,0 +1,17 @@
+﻿
+<a href="card-details">
+    <MudCard Class="scrolling-card" Style="width: 280px; border-radius: 15px;">
+        <MudCardMedia Image="@Image" Height="170" />
+        <MudCardContent>
+            <MudText Typo="Typo.body1" Style="font-weight: 600;" Color="Color.Primary">@Title</MudText>
+            <MudText Typo="Typo.caption">@SubTitle</MudText>
+        </MudCardContent>
+    </MudCard>
+</a>
+
+
+@code {
+    [Parameter] public string Image { get; set; }
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string SubTitle { get; set; }
+}

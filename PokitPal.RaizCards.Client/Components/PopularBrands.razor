@@ -1,0 +1,45 @@
+﻿<MudContainer Class="py-10 px-10">
+    <div class="d-flex d-wrap justify-space-between">
+        <MudText Typo="Typo.h5"><strong>Popular Brands</strong></MudText>
+        <MudLink Href="#" Typo="Typo.subtitle1" Color="Color.Primary">
+            See All
+        </MudLink>
+            
+    </div>
+    <div id="scrollElementBrands" class="scrolling-wrapper mt-5">
+        <Brand Image="img/Image@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image@2x.png"></Brand>
+        <Brand Image="img/Image@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image-1@2x.png"></Brand>
+        <Brand Image="img/Image@2x.png"></Brand>
+    </div>
+</MudContainer>
+
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await _jsRuntime.InvokeVoidAsync("ScrollHorizontal", "scrollElementBrands");
+        }
+    }
+
+}

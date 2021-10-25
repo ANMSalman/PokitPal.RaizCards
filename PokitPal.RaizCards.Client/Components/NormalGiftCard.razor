@@ -1,0 +1,10 @@
+﻿<div class="d-flex justify-center">
+    <GiftCard Image="@Image" Title="@Title" SubTitle="@SubTitle"></GiftCard>
+</div>
+
+
+@code {
+    [Parameter] public string Image { get; set; }
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string SubTitle { get; set; }
+}
