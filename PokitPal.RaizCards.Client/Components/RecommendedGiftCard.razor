@@ -1,8 +1,18 @@
-﻿<MudCard Class="scrolling-card" Style="width: 300px; border-radius: 15px;">
-    <MudCardContent Class="px-0 py-0">
-        <MudCardMedia Image="@Image" Height="160"Style="border-radius: 15px;" />
+﻿<MudHidden Breakpoint="Breakpoint.Xs">
+    <MudCard Class="scrolling-card" Style="width: 1150px; height: 485px; border-radius: 15px;">
+        <MudCardContent Class="px-0 py-0">
+            <MudCardMedia Image="@Image" Height="485"Style="border-radius: 15px;" />
         </MudCardContent>
-</MudCard>
+    </MudCard>
+</MudHidden>
+<MudHidden Breakpoint="Breakpoint.SmAndUp">
+    <MudCard Class="scrolling-card" Style="width: 320px; border-radius: 15px;">
+        <MudCardContent Class="px-0 py-0">
+            <MudCardMedia Image="@Image" Height="135" Style="border-radius: 15px;" />
+        </MudCardContent>
+    </MudCard>
+</MudHidden>
+
 
 @code {
     [Parameter] public string Image { get; set; }
